@@ -1,10 +1,7 @@
 <h1>Editing ad</h1>
 
-<%= render partial: "form", locals: {
-  ad:                 @ad,
-  form_method:        "PUT",
-  submit_button_text: "Update"
-} %>
+<%= render partial: "form",
+  locals: { post_path: "/edit_ad/#{@ad.id}", button_label: "Update" } %>
 
-<%= link_to "Show", @ad %> |
-<%= link_to "Back", ads_path %>
+<a href="/show_ad/<%= @ad.id %>">Show</a> |
+<a href="/list_ads">Back</a>
