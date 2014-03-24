@@ -1,4 +1,6 @@
 App::Application.routes.draw do
-  root to: redirect('/books')
-  resources :books
+  get "/" => redirect("/books")
+
+  get "/books" => "books#index"
+  get "/books/:id" => "books#show"
 end
