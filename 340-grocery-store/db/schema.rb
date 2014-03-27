@@ -40,7 +40,8 @@ ActiveRecord::Schema.define(version: 20140327175749) do
 
   create_table "ship_methods", force: true do |t|
     t.string   "name"
-    t.float    "price"
+    t.float    "price_per_cart"
+    t.float    "price_per_item"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

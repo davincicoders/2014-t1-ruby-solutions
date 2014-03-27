@@ -11,5 +11,9 @@ Product.create! name: 'Oranges',
   image_filename: 'orange.png',
   price_per_unit: 0.79
 
-ShipMethod.create! name: "Ground",  price: 10.00
-ShipMethod.create! name: "2nd Day", price: 15.00
+ShipMethod.create! name: "Ground",
+  price_per_cart: 10.00,
+  price_per_item: 0.10
+ShipMethod.create! name: "2nd Day",
+  price_per_cart: 15.00,
+  price_per_item: 0.10
