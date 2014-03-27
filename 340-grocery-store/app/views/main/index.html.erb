@@ -19,7 +19,7 @@
         <%= product.name %>
       </td>
       <td>
-        $<%= sprintf('%.2f', product.price_per_unit) %>
+        $<%= sprintf('%.2f', product.price_per_item) %>
       </td>
       <td>
         <%= text_field_tag "quantity_#{product.id}", 
