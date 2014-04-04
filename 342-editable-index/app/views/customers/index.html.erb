@@ -1,3 +1,5 @@
+<%= form_tag customers_post_path do %>
+
 <h1>Listing customers</h1>
 
 <table>
@@ -8,22 +10,33 @@
       <th></th>
       <th></th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
-        <td><%= customer.fname %></td>
-        <td><%= customer.lname %></td>
+        <td><%= text_field_tag "fname_#{customer.id}", customer.fname %></td>
+        <td><%= text_field_tag "lname_#{customer.id}", customer.lname %></td>
+        <td><%= submit_tag "Update" %></td>
         <td><%= link_to 'Show', customer %></td>
         <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
         <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+
+    <tr>
+      <td><%= text_field_tag "fname_new", "", placeholder: "first name" %></td>
+      <td><%= text_field_tag "lname_new", "", placeholder: "last name" %></td>
+      <td><%= submit_tag "Create" %></td>
+    </tr>
+
   </tbody>
 </table>
 
 <br>
 
 <%= link_to 'New Customer', new_customer_path %>
+
+<% end %>

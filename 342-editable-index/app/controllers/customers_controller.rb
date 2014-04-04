@@ -7,6 +7,23 @@ class CustomersController < ApplicationController
     @customers = Customer.all
   end
 
+  def customers_post
+    Customer.all.each do |customer|
+      customer.fname = params["fname_#{customer.id}"]
+      customer.lname = params["lname_#{customer.id}"]
+      customer.save!
+    end
+
+    if params["fname_new"] != ""
+      customer = Customer.new
+      customer.fname = params["fname_new"]
+      customer.lname = params["lname_new"]
+      customer.save!
+    end
+
+    redirect_to customers_path and return
+  end
+
   # GET /customers/1
   # GET /customers/1.json
   def show
